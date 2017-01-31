@@ -1,0 +1,32 @@
+body{
+    min-width: 400px;
+    margin-top: 10px;
+}
+#mainForm {
+    background-color: white;
+    padding: 20px;
+}
+
+
+#logo {
+    background-image: url("../images/monsterMash.png");
+    width: 270px;
+    height: 95px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    background-color: darkturquoise;
+    color: darkturquoise;
+}
+
+.column-wrap {
+    overflow: hidden;
+}
+
+#createMonsterHeader{
+    text-align: center;
+    margin-bottom: 20px;
+}

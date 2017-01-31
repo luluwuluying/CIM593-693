@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Monster Mash - Create Your Monster!</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="row-fluid column-wrap">
+            <div class="col-md-4 sidebar">hello</div>
+            <div class="col-md-4">
+
+                <div id="mainForm">
+                    <div id="logo"></div>
+
+                    <p>Monster Mash is a text adventure game, where you create a monster and create your ideal monster lair.</p>
+
+                    <h3 id="createMonsterHeader" class="text-uppercase">Let's Create Your Monster!</h3>
+                    <form class="form-horizontal" action="" method="post">
+
+                        <div class="form-group">
+                            <label for="monsterNameSimple">Monster Name Simple:</label>
+
+                            <input class="form-control" type="text" name="monsterNameSimple" id="monsterNameSimple">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4" for="monsterName">Monster Name:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="monsterName" id="monsterName">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <h4 class="form-control-static">Gender:</h4>
+
+                            <div class="radio">
+                                <label for="male">
+                                    <input type="radio" name="gender" value="male" checked id="male"> Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="female">
+                                    <input type="radio" name="gender" value="female" id="female"> female
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="other">
+                                    <input type="radio" name="gender" value="other" id="other"> Other
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="quarters">Living Quarters: </label>
+                            <select multiple class="form-control" name="quarters" id="quarters">
+                                <option value="cave">Cave</option>
+                                <option value="dungeon">Dungeon</option>
+                                <option value="forest">Forest</option>
+                                <option value="closet">Closet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Answer Machine Message</label>
+                            <br>
+                            <textarea class="form-control" name="message" rows="10" cols="30" id="message">I am in the middle of eating...
+                            </textarea>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" name="vehicle1" value="horse"> I have a horse
+                                </label>
+                            </div>
+
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" name="vehicle2" value="Car" disabled> I have a magic carpet
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="color">Favorite T-shirt Color </label>
+
+                            <input type="color" name="favcolor" value="#ff0000" id="color">
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="range">Weight 0-1000</label>
+
+                            <input type="range" name="points" min="0" max="1000" id="range">
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="file"> Choose some photos to adorn your lair:</label>
+                            <br>
+                            <input type="file" name="img" multiple>
+                        </div>
+
+                        <div class="input-group">
+
+                            <!--
+                            <label for="email">Login E-mail:</label>
+                            <input type="email" name="email" id="email">
+-->
+
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+
+                            <!--
+                            <label for="pass">Login Password:</label>
+                            <input type="password" name="pass">
+-->
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+
+
+                        </div>
+
+                        <br>
+
+
+                        <div class="form-group">
+
+                            <input class="form-control" type="submit" value="Submit">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 sidebar">hello</div>
+        </div>
+
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
