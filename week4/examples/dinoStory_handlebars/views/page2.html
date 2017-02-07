@@ -1,5 +1,32 @@
-Phil played with the {{message}}.
-<img src="../images/{{message}}.jpg">
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+        <h3> Phil played {{message}}.</h3>
 
-Phil say good bye and went to...
+        <img src="/images/{{pic}}.jpg" width="390">
 
+
+        <div class="col-md-3">
+
+            {{#if nav}}
+            <h3>Phil said good bye and went to...</h3>
+            {{/if}}
+            <img src="/images/dinosaur.gif"></div>
+
+    </div>
+    <div class="col-md-3"></div>
+
+</div>
+{{#if nav}}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <nav>
+        {{#list nav}}
+        <a href="{{url}}">{{title}}</a>
+        {{/list}}
+        </nav>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{{/if}}

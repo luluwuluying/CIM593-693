@@ -54,7 +54,7 @@ server.route({
     path: '/{param*}',
     handler: {
         directory: {
-            path: '.',
+            path: './',
             listing: false,
             index: false
         }

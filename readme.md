@@ -15,13 +15,13 @@
 * Introduction to Bootstrap
 
 
-###Week 3 – Introduction to Javascript/Node (Jan 31st)
+###[Week 3 – Introduction to Javascript/Node (Jan 31st)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week3)
 * Basic Javascript – DOM Manipulation
 * Installing Node
 * Setting up Work Environment
 
 
-###Week 4 - Routing (Feb 7th)
+###[Week 4 - Routing (Feb 7th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week4)
 * Hapi.js
 * Routing
 

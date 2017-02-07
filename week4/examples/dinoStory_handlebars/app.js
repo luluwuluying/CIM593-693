@@ -30,8 +30,8 @@ server.views({
     path: 'views',
     layoutPath: 'views/layout',
     layout: 'layout',
-    //helpersPath: 'views/helpers',
-    //partialsPath: 'views/partials'
+    helpersPath: 'views/helpers'
+        //partialsPath: 'views/partials'
 });
 
 
@@ -45,10 +45,16 @@ server.route({
             context: {
                 title: 'Phil at the Park',
                 menu: [
-                    {item: 'squirrel'},
-                    {item: 'kite'},
-                    {item: 'computer'}
-                ],
+                    {
+                        item: 'squirrel'
+                    },
+                    {
+                        item: 'kite'
+                    },
+                    {
+                        item: 'computer'
+                    }
+                    ],
                 message: 'On a Spring Morning, Phil the Dino went to the park. Walking, he was startled by a ....'
             }
         }
@@ -60,9 +66,41 @@ server.route({
     path: '/{param*}',
     handler: {
         directory: {
-            path: '.',
-            listing: false,
-            index: false
+            path: './',
+            listing: true,
+            index: false,
+            redirectToSlash: true
+        }
+    }
+});
+
+
+server.route({
+    method: 'GET',
+    path: '/dynamic',
+    handler: {
+        view: {
+            template: 'dynamic',
+            context: {
+                title: "Phil's Adventure",
+                message: 'On a Spring Morning, Phil the Dino went to the park. Walking, he was startled by a ....',
+                nav: [
+                    {
+                        url: "/page2/squirrel",
+                        title: "squirrel"
+                    },
+                    {
+                        url: "/page2/kite",
+                        title: "kite"
+                    },
+                    {
+                        url: "/page2/computer",
+                        title: "computer"
+                    }
+                ]
+            }
+
+            //
         }
     }
 });
@@ -72,13 +110,63 @@ server.route({
     path: '/page2/{played*}',
     handler: function (request, reply) {
 
+        var played = encodeURIComponent(request.params.played);
+        var message = "with the " + played;
+
+
         reply.view('page2', {
-            title: 'Phil at the Park',
-            message: encodeURIComponent(request.params.played)
+            title: "Phil's Adventure",
+            message: message,
+            pic: played,
+            nav: [
+                    {
+                        url: "/page3/park",
+                        title: "park"
+                    },
+                    {
+                        url: "/page3/playground",
+                        title: "space"
+                    },
+                    {
+                        url: "/page3/museum",
+                        title: "museum"
+                    }
+                ]
+
         });
     }
 });
 
+
+server.route({
+    method: 'GET',
+    path: '/page3/{played*}',
+    handler: function (request, reply) {
+         var played = encodeURIComponent(request.params.played);
+        var message = "at the " + played ;
+        reply.view('page2', {
+            title: "Phil's Adventure",
+            message: message,
+            pic: played
+
+        });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/basicHandler',
+    handler: {
+        view:{
+            template: 'basic',
+            context: {
+               title: "Basic Handler",
+                message: "More information"
+            }
+
+        }
+    }
+});
 
 
 server.start((err) => {
