@@ -1,0 +1,42 @@
+<a onclick="loadfrom()"><h1>Load From</h1></a>
+
+<div id="loadInfo"></div>
+
+
+<a onclick="postTo()"><h1>Post To</h1></a>
+
+<div id="postTo"></div>
+
+
+<script>
+    function loadfrom() {
+        var loadTo = document.getElementById("loadInfo");
+
+        fetch('/loadFrom')
+            .then(function (response) {
+                //console.log(response);
+                return response.text();
+            }).then(function (text) {
+                console.log(text);
+                loadTo.innerHTML = text;
+            });
+    }
+
+    function postTo() {
+        var postTo = document.getElementById("postTo");
+
+        var formData = new FormData();
+        formData.append("name", "Zeven");
+
+        fetch("/postTo", {
+            method: "POST",
+            body: formData
+        }).then(function (response) {
+            //console.log(response);
+            return response.text();
+        }).then(function (text) {
+            console.log(text);
+            postTo.innerHTML = text;
+        });
+    }
+</script>

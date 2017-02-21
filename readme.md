@@ -26,12 +26,12 @@
 * Routing
 
 
-###Week 5 – Submitting Forms (Feb 14th)
+###[Week 5 – Submitting Forms (Feb 14th)]((https://github.com/zevenrodriguez/CIM593-693/tree/master/week5))
 * Submit Form
 * Retrieving Responses
 * Intro to Ajax
 
-###Week 6 - ORM (Feb 21st)
+###[Week 6 - ORM & Fetch(Feb 21st)]((https://github.com/zevenrodriguez/CIM593-693/tree/master/week6))
 * Sequelize
 
 ###Week 7 - ORM (Feb 28th)

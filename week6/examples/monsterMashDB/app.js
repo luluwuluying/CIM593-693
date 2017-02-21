@@ -95,10 +95,34 @@ server.route({
     }
 });
 
+
+server.route({
+    method: 'GET',
+    path: '/createDB',
+    handler: function (request, reply) {
+        // force: true will drop the table if it already exists
+        Monster.sync({
+            force: true
+        })
+        reply("Database Created")
+    }
+});
+
+
+server.route({
+    method: 'GET',
+    path: '/createMonster',
+    handler: {
+        view: {
+            template: 'createmonster'
+        }
+    }
+});
+
 server.route({
 
     method: 'POST',
-    path: '/form',
+    path: '/formMonster',
     handler: function (request, reply) {
         var formresponse = JSON.stringify(request.payload);
         var parsing = JSON.parse(formresponse);
@@ -120,15 +144,19 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/createDB',
+    path: '/displayAll',
     handler: function (request, reply) {
-        // force: true will drop the table if it already exists
-        Monster.sync({
-            force: true
-        })
-        reply("Database Created")
+        Monster.findAll().then(function (users) {
+            // projects will be an array of all User instances
+            //console.log(users[0].monsterName);
+            var allUsers = JSON.stringify(users);
+            reply.view('dbresponse', {
+                dbresponse: allUsers
+            });
+        });
     }
 });
+
 
 server.start((err) => {
 

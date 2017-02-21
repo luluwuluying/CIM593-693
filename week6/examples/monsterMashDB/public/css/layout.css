@@ -25,3 +25,11 @@ body{
     height: 95px;
     margin-bottom: 10px;
 }
+
+
+#mainRes{
+    background-color: white;
+    width: 570px;
+    margin: 0 auto;
+    padding: 20px;
+}
