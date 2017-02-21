@@ -157,6 +157,94 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/destroyAll',
+    handler: function (request, reply) {
+
+        Monster.drop();
+
+        reply("destroy all");
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/delete/{id}',
+    handler: function (request, reply) {
+
+
+        Monster.destroy({
+            where: {
+                id: encodeURIComponent(request.params.id)
+            }
+        });
+
+        reply().redirect("/displayAll");
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/find/{monsterName}',
+    handler: function (request, reply) {
+        Monster.findOne({
+            where: {
+                monsterName: encodeURIComponent(request.params.monsterName),
+            }
+        }).then(function (user) {
+            var currentUser = "";
+            currentUser = JSON.stringify(user);
+            //console.log(currentUser);
+            currentUser = JSON.parse(currentUser);
+            console.log(currentUser);
+            reply.view('find', {
+                dbresponse: currentUser
+            });
+
+        });
+    }
+});
+
+
+server.route({
+    method: 'GET',
+    path: '/update/{id}',
+    handler: function (request, reply) {
+        var id = encodeURIComponent(request.params.id);
+
+
+        reply.view('updatemonster', {
+            routeId: id
+        });
+    }
+
+});
+
+server.route({
+    method: 'POST',
+    path: '/update/{id}',
+    handler: function (request, reply) {
+        var cm = "";
+        var id = encodeURIComponent(request.params.id);
+        var formresponse = JSON.stringify(request.payload);
+        var parsing = JSON.parse(formresponse);
+        //console.log(parsing);
+
+        Monster.update(parsing, {
+            where: {
+                id: id
+            }
+        });
+
+        reply().redirect("/displayAll");
+
+    }
+
+});
+
+
+
 
 server.start((err) => {
 
@@ -166,3 +254,5 @@ server.start((err) => {
     console.log(`Server running at: ${server.info.uri}`);
 
 });
+
+
