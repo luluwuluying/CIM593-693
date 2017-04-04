@@ -1,0 +1,61 @@
+<!--
+<form id="myForm" method="POST" action="/imageUpload">
+    Select a file to upload:
+    <input type="file" id="myFile" name="file">
+    <input type="submit">
+</form>
+-->
+
+<h1>Upload</h1>
+
+<form action="/imageUpload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="fileUpload" id="fileUpload" class="form-control">
+    <button class="btn">Submit</button>
+</form>
+
+
+<!--
+<form id="myForm">
+   Select a file to upload:
+    <input type="file" id="myFile" name="file">
+    <input type="submit" onclick="sendData()">
+</form>
+-->
+
+<div id="postTo"></div>
+
+<script>
+//    var currentFile = null;
+//    var inputElement = document.getElementById("myFile");
+//
+//    inputElement.addEventListener("change", getFile, false);
+//
+//    function getFile() {
+//        currentFile = this.files; /* now you can work with the file list */
+//        console.log(currentFile[0]);
+//    }
+
+//    function sendData() {
+//        if(currentFile != null){
+//
+////          var postTo = document.getElementById("postTo");
+////
+////        var formData = new FormData();
+////        formData.append("name", "Zeven");
+////
+////        fetch("/postTo", {
+////            method: "POST",
+////            body: formData
+////        }).then(function (response) {
+////            //console.log(response);
+////            return response.text();
+////        }).then(function (text) {
+////            console.log(text);
+////            postTo.innerHTML = text;
+////        });
+//        }else{
+//            window.alert("Please select an image to upload");
+//        }
+//
+//    }
+</script>
